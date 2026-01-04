@@ -19,9 +19,20 @@ app.use(express.json())
 //app.use(cors())
 
 //Routes
+
+// كنت بتجنن لهذا كان لازم اتاكد انه يشتغل
 app.get("/", (req, res) => {
   res.send("API is running");
+  
 });
+// testing the routes removing later 
+const userRoutes = require("./controllers/user");
+const classRoutes = require("./controllers/classes");
+const submissionRoutes = require("./controllers/submissions");
+
+app.use("/users", userRoutes);
+app.use("/classes", classRoutes);
+app.use("/submissions", submissionRoutes);
 
 
 app.listen(3000, () => {
